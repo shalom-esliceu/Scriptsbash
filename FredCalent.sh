@@ -6,6 +6,7 @@ echo "el número a adivinar és $adivina"
 ########################################################
 # Escriu el teu codi aqui
 ########################################################
+
 INTENTS_TOTALS=3
 INTENTS_CONSUMITS=0
 while [[ INTENTS_CONSUMITS -lt INTENTS_TOTALS ]]
