@@ -36,4 +36,4 @@ then
 fi
 
 echo "Usuari ${USERNAME} creat correctament"
-exit
+exit 0
