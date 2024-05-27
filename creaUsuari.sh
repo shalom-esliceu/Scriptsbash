@@ -5,7 +5,8 @@ then
     exit 1
 fi
 
-if [ "$#" -ne 1 ]; then
+#DOS PARÀMETRES OBLIGATORIS
+if [ ${#} -ne 1 ]; then
     echo "Tienes que introducir tres parámetros"
     exit 1
 fi
@@ -14,8 +15,8 @@ fi
 FULL_NAME=${1}
 #DEMANAM L'USERNAME
 USERNAME=${2}
-#DEMANAM EL PASSWORD
-PASSWORD=${3}
+#GENERAR UN PASSWORD EL PASSWORD
+PASSWORD=$(date +%s%N)
 #CREAM L'USUARI
 usseradd -c "${FULL_NAME}" -m ${USERNAME}
 
@@ -34,6 +35,6 @@ then
     echo "Error al canviar la contraseña"
     exit 1
 fi
-echo "Usuari ${USERNAME} creat correctament"
+echo "Usuari ${USERNAME} PASSWORD: ${PASSWORD}"
 
 exit 0
