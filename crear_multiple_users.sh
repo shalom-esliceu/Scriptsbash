@@ -13,6 +13,6 @@ do
   full_name=$(echo $line | cut -d ' ' -f 1-2)
   username=$(echo $line | cut -d ' ' -f 3)
   
-  # Crida l'script per esborrar l'usuari
-   ./borrarUsuari.sh $username
+  # Crida l'script per crear l'usuari
+   ./creaUsuari.sh "$full_name" $username
 done < "$input_file"

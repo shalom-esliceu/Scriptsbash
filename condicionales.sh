@@ -1,10 +1,10 @@
-#!/bin/bash
+!/bin/bash
 
-read -p "Como te llamas? " NOM
+read -p "Com et diuen? " NOM
 
-if [[ ${NOM} == "Legna" ]]
+if [[ ${NOM} == "guillem" ]]
 then
-    echo "Eres Legna"
+    echo "ets en guillem"
 else
-    echo "Eres ${NOM}"
+    echo "ets en ${NOM}"
 fi

@@ -1,31 +1,35 @@
 #!/bin/bash
 #aquest script ha de tenir un paràmetre
-#obligatori que serà la
+#obligatori que serà la 
 #quantitat de números a genera
-if [[ ${#} -ne 1  ]]
+if [[ ${#} -ne 1 ]]
 then
-    echo "Has d'introduir un paràmetre"
+    echo "has d'introduir un paràmetre"
     exit 1
 fi
 
 #hem de recollir el paràmetre i guardar-lo a la variable QUANTS
 QUANTS=${1}
 
-URL="https://www.random.org/integers/?num=${QUANTS}&min=1&max=100&col=1&base=10&format=plain&rnd=new"
+
+URL="https://php.enguillem.es/random.php?num=${QUANTS}&min=1&max=100&col=1&base=10&format=plain&rnd=new"
 echo ${URL}
 
-#EXECUTAR URL I GUARDAM EL RESULTAT DONS LA VARIABLE NUMEROS
-# NUMEROS=$(curl ${URL})
+#EXECUTAR URL I GUARDAM EL RESULTAT DINS LA VARIABLE NUMEROS
 NUMEROS=$(curl ${URL})
-echo "ELS NUMEROS GENERATS S SÓN ${NUMEROS}"
+# NUMEROS="23 52 1 20 7 8 99"
 #ARA HEM DE RECORRE AQUEST NÚMEROS PER CALCULAR LA SUMA
 SUMA=0
+# echo "${NUMEROS}"
 for N in ${NUMEROS}
 do
-    SUMA=$((SUMA+${N}))
+    # echo "NUMERO ${N}"
+    #ACUMULAR EL NÚMERO ACTUAL A LA SUMA
+    SUMA=$((SUMA+N))
+
+    
 done
-
+MITJANA=$(echo "scale=3; ${SUMA}/${QUANTS}" | bc)
 #INFORMAR DEL RESULTAT DE LA SUMA
-
-
-
+echo "LA SUMA VAL: ${SUMA}"
+echo "La mitjana val: ${MITJANA}"
